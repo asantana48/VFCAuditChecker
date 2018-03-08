@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VFCApplication.FTTACloud
 {
-    class Device
+    public class Device
     {
         public string GUID { get; set; }
         public string MACaddress { get; set; }

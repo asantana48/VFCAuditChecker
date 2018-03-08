@@ -15,48 +15,74 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace VFCApplication
 {
+    public delegate void SendResponse();
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     ///
-    public partial class MainWindow : Window
-    {
-        const string PATH = "C:/Users/asantana/Desktop/VFCApplication/VFCApplication/Credentials.txt";
-        CloudAPI Api;
 
-        List<Device> myDevices;
-        public MainWindow()
+    public partial class DeviceWindow : Window
+    {
+        public event EventHandler FormSubmitted;
+
+        private bool ClickedX = true;
+
+        const string PATH = "C:/Users/asantana/Desktop/VFCApplication/VFCApplication/resources/Credentials.txt";
+        
+        // Cloud API related data
+        CloudAPI Api;
+        private LoginData Login;
+
+        public DeviceWindow()
         {
             InitializeComponent();
 
-            // Login to cloud
+            // Initialize cloud API
             string ApiKey = File.ReadAllText(PATH);
             Api = new CloudAPI(ApiKey);
-            Api.Login("andres.santana@lascarelectronics.com", "Lascarsedi12");
-        }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        { 
-            try
-            {
-                List<Device> myDevices = Api.GetDeviceList();
+            // Initialize login components
+            LoginWindow lw = new LoginWindow(Api);
+            Login = new LoginData();
 
-                foreach (Device d in myDevices)
+
+            lw.ShowDialog();
+         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            try {
+                foreach (Device d in Api.GetDeviceList())
                 {
                     DeviceList.Items.Add(d.name);
                 }
             }
             catch (CloudAPI.CloudException ce)
             {
-                string message = "Caught exception: " + ce.Message;
-                Output.Text = message;
-                
+                Debug.WriteLine("Caught exception: " + ce.Message);
             }
-            Output.UpdateLayout();
+            catch (Exception ee)
+            {
+                Debug.WriteLine("caught exception" + ee.Message);
+            }
         }
 
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (ClickedX)
+            {
+                if (MessageBox.Show("Are you sure want to exit?",
+                       "Audit Checker",
+                        MessageBoxButton.OKCancel,
+                        MessageBoxImage.Information) == MessageBoxResult.OK)
+                    Environment.Exit(1);
+                else
+                    e.Cancel = true;
+            }
+        }
     }
 }

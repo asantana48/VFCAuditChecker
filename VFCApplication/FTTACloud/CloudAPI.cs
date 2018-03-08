@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace VFCApplication.FTTACloud
 {
-    class CloudAPI
+    public class CloudAPI
     {
         private CloudConnection cloud;
         public User CurrentUser { get; private set; }
@@ -18,7 +18,7 @@ namespace VFCApplication.FTTACloud
             cloud = new CloudConnection(credentials);
         }
         
-        public void Login(string email, string password)
+        public bool Login(string email, string password)
         {
             var request = new RestRequest();
             request.Resource = "Users.svc/Login";
@@ -26,6 +26,8 @@ namespace VFCApplication.FTTACloud
             request.AddParameter("password", password, ParameterType.QueryString);
 
             CurrentUser = cloud.Get<User>(request);
+
+            return CurrentUser.GUID != null;
         }
 
         public string GetStatus()

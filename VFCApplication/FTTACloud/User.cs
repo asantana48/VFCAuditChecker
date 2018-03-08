@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VFCApplication.FTTACloud
 {
-    class User
+    public class User
     {
         public string GUID { get; set; }
         public string name { get; set; }
