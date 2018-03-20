@@ -1,0 +1,32 @@
+﻿<Window x:Class="VFCAuditChecker.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VFCAuditChecker"
+        mc:Ignorable="d"
+        PreviewKeyDown="Window_PreviewKeyDown"
+        Closing="Window_Closing"
+        Title="Login" Height="400" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FF607AA8" Offset="0.133"/>
+                <GradientStop Color="#FFE3E7EE" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Rectangle Fill="#FFEEEEFD" HorizontalAlignment="Left" Height="224" Margin="256,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="278"/>
+        <TextBlock HorizontalAlignment="Left" Margin="274,100,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="274,163,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
+        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" KeyDown="Inputs_KeyDown" Width="75" Margin="351,230,0,0" Click="Button_Click"/>
+        <TextBox x:Name="UserInput" HorizontalAlignment="Left" Height="23" Margin="274,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236">
+            <TextBox.BindingGroup>
+                <BindingGroup/>
+            </TextBox.BindingGroup>
+        </TextBox>
+        <PasswordBox x:Name="PasswordInput" HorizontalAlignment="Left" KeyDown="Inputs_KeyDown"  Margin="274,184,0,0" VerticalAlignment="Top" Width="236" Height="23"/>
+        <TextBlock x:Name="ErrorText" HorizontalAlignment="Left" Margin="274,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  RenderTransformOrigin="-1.592,1.375" Width="236" Text="Your email and/or password was incorrect." Foreground="#FFE41313"/>
+
+    </Grid>
+</Window>
