@@ -51,6 +51,8 @@ namespace VFCAuditChecker
 
             //lw.ShowDialog();
             Api.Login("andres.santana@lascarelectronics.com", "Lascarsedi12");
+            Console.WriteLine(Api.GetStatus());
+            Console.WriteLine(Api.GetDeviceList());
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -71,14 +73,8 @@ namespace VFCAuditChecker
             }
             catch (Exception ee)
             {
-                Debug.WriteLine("caught exception" + ee.Message);
-            }
-
-            DateTime targetDate = new DateTime(2018, 3, 1);
-
-            Calendar.BuildCalendar(targetDate);
-
-            
+                Debug.WriteLine("Caught exception" + ee.Message);
+            }            
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -95,22 +91,6 @@ namespace VFCAuditChecker
             }
         }
 
-
-        private void RefreshCalendar()
-        {
-            int year = (int)2018;
-            int month = 3;
-
-            DateTime targetDate = new DateTime(year, month, 1);
-
-            Calendar.BuildCalendar(targetDate);
-        }
-
-        private void Calendar_DayChanged(object sender, DayChangedEventArgs e)
-        {
-            // do stuff with calendar here
-        }
-
         private void DeviceList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             AuditList.Items.Clear();
@@ -121,28 +101,11 @@ namespace VFCAuditChecker
             });
             dates.ForEach(y => {
                 AuditList.Items.Add(y.ToLongDateString() + " - " + y.ToLongTimeString());
-                Calendar.Mark(y, Jarloo.Calendar.Backdrop.YELLOW); 
+                Console.WriteLine(y.ToLongDateString());
             });
 
         }
 
-        private void Arrow_Click(object sender, EventArgs e)
-        {
-            // Turning calendar invisible
-            if (Calendar.IsVisible == true)
-            {
-                AuditLabel.Text = "Audit Checks";
-                Calendar.Visibility = Visibility.Hidden;
-                AuditList.Visibility = Visibility.Visible;
-            }
-            // Turning calendar visible
-            else
-            {
-                AuditLabel.Text = "Calendar";
-                Calendar.Visibility = Visibility.Visible;
-                AuditList.Visibility = Visibility.Hidden;
-            }
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

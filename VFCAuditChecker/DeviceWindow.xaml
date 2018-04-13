@@ -28,18 +28,17 @@
         <ListBox x:Name="DeviceList" HorizontalAlignment="Left" Height="530" Margin="0,39,0,0" VerticalAlignment="Top" Width="260" SelectionChanged="DeviceList_SelectionChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" Text="Device List" VerticalAlignment="Top" Height="24" Width="260" FontSize="18" TextAlignment="Center"/>
         <Button Content="Generate report" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="457,517,0,0" Click="Button_Click" />
-        <Button Style="{StaticResource ImageButtonStyle}" Click="Arrow_Click" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="289,482,0,0">
+        <Button Style="{StaticResource ImageButtonStyle}" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="289,482,0,0">
             <Image Source="Images/move_prev.png" Margin="0,18,0,-18"/>
         </Button>
-        <Button Style="{StaticResource ImageButtonStyle}" Click="Arrow_Click" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="711,482,0,0">
+        <Button Style="{StaticResource ImageButtonStyle}" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="711,482,0,0">
             <Image Source="Images/move_next.png" Margin="0,18,0,-18"/>
         </Button>
 
-        <TextBlock x:Name="AuditLabel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="475" FontSize="18" TextAlignment="Center" Margin="287,12,0,0"><Run Text="Calendar"/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="AuditLabel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="475" FontSize="18" TextAlignment="Center" Margin="287,12,0,0"><Run Text="View"/><LineBreak/><Run/></TextBlock>
         <Grid
             HorizontalAlignment="Left" Margin="286,40,0,0" VerticalAlignment="Top" Height="446" Width="475">
-            <Jarloo:Calendar x:Name="Calendar" Visibility="Visible"/>
-            <ListBox x:Name="AuditList" Visibility="Hidden"/>
+            <ListBox x:Name="AuditList" Visibility="Visible"/>
         </Grid>
     </Grid>
 </Window>

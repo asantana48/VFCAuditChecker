@@ -18,5 +18,7 @@ namespace VFCAuditChecker.Models
         public string timeZoneOffset { get; set; }
         public string sampleRate { get; set; }
         public string channels { get; set; }
+
+        public string probes { get; set; }
     }
 }

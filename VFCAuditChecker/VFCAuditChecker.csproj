@@ -61,6 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Reading.cs" />
     <Compile Include="Utilities.cs" />
     <Page Include="DeviceWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

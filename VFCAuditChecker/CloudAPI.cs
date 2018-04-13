@@ -95,6 +95,22 @@ namespace VFCAuditChecker
             });
             return dates;
         }
+
+        public List<Reading> GetReadings(string deviceGUID, string startDate, string endDate)
+        {
+            var request = new RestRequest();
+            request.Resource = "Devices.svc/Readings";
+            request.AddParameter("userGUID", CurrentUser.GUID, ParameterType.QueryString);
+            request.AddParameter("sensorGUID", deviceGUID, ParameterType.QueryString);
+            request.AddParameter("startDate", startDate, ParameterType.QueryString);
+            request.AddParameter("endDate", endDate, ParameterType.QueryString);
+            request.AddParameter("localTime", "true", ParameterType.QueryString);
+            request.AddParameter("descendingDateOrder", "false", ParameterType.QueryString);
+            request.AddParameter("samplesOnly", "false", ParameterType.QueryString);
+
+            var response = cloud.Get<List<Reading>>(request);
+            return response;
+        }
         
         /// <summary>
         /// Respresents a connection to Lascar's FilesThruTheAir cloud
@@ -178,6 +194,5 @@ namespace VFCAuditChecker
             public CloudException(string message) : base(message) { }
         }
     }
-
-    
+        
 }

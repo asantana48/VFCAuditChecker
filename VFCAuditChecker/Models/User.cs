@@ -13,7 +13,7 @@ namespace VFCAuditChecker.Models
         public string dateFormat { get; set; }
         public string timeFormat { get; set; }
         public string groupAlertFrequency { get; set; }
-        public string permissions { get; set; }
+        // public string permissions { get; set; }
         
         /*public class Permissions
         {

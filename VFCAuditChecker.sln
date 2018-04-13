@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VFCAuditChecker", "VFCAudit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jarloo.Calendar", "Jarloo.Calendar\Jarloo.Calendar.csproj", "{31C3B4A7-504B-4EFF-BACC-C8F2FFE5AF6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VFCAuditCheckerTests", "VFCAuditCheckerTests\VFCAuditCheckerTests.csproj", "{E708C38D-88CD-42A6-B0DF-C8CDA18AEF72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{31C3B4A7-504B-4EFF-BACC-C8F2FFE5AF6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31C3B4A7-504B-4EFF-BACC-C8F2FFE5AF6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31C3B4A7-504B-4EFF-BACC-C8F2FFE5AF6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E708C38D-88CD-42A6-B0DF-C8CDA18AEF72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E708C38D-88CD-42A6-B0DF-C8CDA18AEF72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E708C38D-88CD-42A6-B0DF-C8CDA18AEF72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E708C38D-88CD-42A6-B0DF-C8CDA18AEF72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
